@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @RestController
@@ -39,13 +40,20 @@ public class HelloController {
     // GET - hello world string
     @GetMapping("/hello")
     public String sayHello(){
-        return "Hello world! Welcome to my application";
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        System.out.println("Current date and time: " + currentDateTime);
+
+        System.out.println("This end point was accessed");
+        return "Hello world! Welcome to my application @"+ currentDateTime;
     }
 
     // GET - User information
     @GetMapping("/users")
-    public List<Map<String, String>> getUsers(){
-        return users;
+    public UserListResponse getUsers(){
+
+        System.out.println("List of users");
+        return new UserListResponse("User List", users);
     }
 
     @GetMapping("/users/{id}")
