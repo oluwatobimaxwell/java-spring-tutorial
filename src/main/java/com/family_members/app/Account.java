@@ -19,10 +19,7 @@ public class Account {
     public void deposit(double amount){
         if(amount>0){
             this.balance=this.balance+amount;
-            System.out.println("Account Holder Name: "+ this.accountHolderName);
-            System.out.println("Account Number: "+ this.accountNumber);
-            System.out.println("Account Balance: "+ this.balance);
-
+            this.displayAccountInfo();
         } else {
             System.out.println("Invalid Amount - Amount must be greater than zero");
         }
@@ -33,9 +30,7 @@ public class Account {
         if(amount>0){
             if(this.balance>=amount){
                 this.balance=this.balance-amount;
-                System.out.println("Account Holder Name: "+ this.accountHolderName);
-                System.out.println("Account Number: "+ this.accountNumber);
-                System.out.println("Account Balance: "+ this.balance);
+                this.displayAccountInfo();
             } else {
                 System.out.println("Insufficient Balance");
             }
